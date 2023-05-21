@@ -1,3 +1,10 @@
+# IDE / OS files/folders
+target/
+.DS_Store
+.idea/
+.vscode/
+*.iml
+
 # Compiled class file
 *.class
 
