@@ -4,6 +4,7 @@ target/
 .idea/
 .vscode/
 *.iml
+output/
 
 # Compiled class file
 *.class
