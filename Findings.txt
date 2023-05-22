@@ -1,0 +1,29 @@
+From the implementation of the two scenarios, I found 2 issues. They are related.
+The execution of the tests were done on Chrome and Safari. I executed this on my Macbook.
+
+1) The scenario 2 error message is incorrect. Either the test needs to be updated with
+the correct error message OR the error message itself needs to be updated to match the
+expectation of the test. If the error message was only 1 line like not entering the
+Username or Password. The "Epic sadface:" is included for each error message.
+
+Actual error message: Epic sadface: Sorry, this user has been locked out
+Expected error message: Sorry, this user has been banned
+
+2) The error message does not fit in the given error message container, which causes
+the message be slightly concealed. This seems this is the case when you also pass in
+the incorrect password. Possibly solution is to make the error container:
+    a) auto-flex the height
+    b) make the height large enough to fit the largest possible error message
+    c) Choice a font that fits the given height of the error container.
+
+-------------------------------------------------------------------------------------
+Since this was a educational exercise.
+
+I didn't consider the exposure of creds on the login page a bug. It is of course in real
+life.
+
+Google states that the credentials are compromised and should be changed.
+
+I didn't check on Firefox. With more time, I would add the capability of the
+WebDriverUtils with Docker, which the "io.github.bonigarcia.wdm.WebDriverManager"
+has the many other capabilities.

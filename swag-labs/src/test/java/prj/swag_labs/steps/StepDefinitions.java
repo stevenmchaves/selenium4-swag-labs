@@ -4,8 +4,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.Scenario;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.WebDriverException;
-import prj.swag_labs.app.webdriver.WebDriverUtils;
+import prj.swag_labs.webdriver.WebDriverUtils;
 
 import java.io.File;
 

@@ -1,4 +1,4 @@
-package prj.swag_labs.app.webdriver;
+package prj.swag_labs.webdriver;
 
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -27,14 +27,19 @@ public class WebDriverUtils {
     }
 
     public static void quit() {
-        driver.quit();
+        if(driver != null) {
+            driver.quit();
+        }
     }
 
     public static void close() {
-        driver.close();
+        if(driver != null) {
+            driver.close();
+        };
     }
 
     public WebDriver getDriver() {
+        //  return getDriver(DriverManagerType.SAFARI);
         return getDriver(DriverManagerType.CHROME);
     }
 
@@ -45,7 +50,6 @@ public class WebDriverUtils {
     }
 
     private WebDriver createLocalDriver(DriverManagerType driverType) {
-        System.setProperty("webdriver.http.factory", "jdk-http-client");
         switch (driverType) {
             case FIREFOX:
                 WebDriverManager.firefoxdriver().setup();
@@ -53,6 +57,7 @@ public class WebDriverUtils {
                 break;
             case CHROME:
             case CHROMIUM:
+                System.setProperty("webdriver.http.factory", "jdk-http-client");
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--remote-allow-origins=*");
