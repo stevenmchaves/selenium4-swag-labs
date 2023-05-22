@@ -2,25 +2,48 @@ package prj.swag_labs.data;
 
 import prj.swag_labs.utils.YamlUtils;
 
-import java.io.FileNotFoundException;
 import java.util.List;
-import java.util.Objects;
 
-
+/**
+ * Data Object Class used to get data from YAML file
+ */
 public class AccountInfo {
     private String username;
     private String password;
+
+    private String account;
 
     static List<AccountInfo> accounts;
 
     public static final String ACCOUNTS_YAML = "accounts.yaml";
 
     static {
-        try {
-            accounts = YamlUtils.readAccountFile(ACCOUNTS_YAML);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(ACCOUNTS_YAML + " doesn't exist!");
+        accounts = YamlUtils.readAccountFile(ACCOUNTS_YAML);
+    }
+
+    /**
+     * Looks through the list of users that are known and returns the account
+     * that matches the given username
+     * @param username String of username trying to find
+     * @return AccountInfo object or null
+     */
+    public static AccountInfo findAccount(String accountName) {
+        AccountInfo accountInfo = null;
+        for (AccountInfo account : accounts) {
+            if (account.account.equals(accountName)) {
+                accountInfo = account;
+                break;
+            }
         }
+        return accountInfo;
+    }
+
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
     }
 
     public void setUsername(String userName) {
@@ -44,6 +67,7 @@ public class AccountInfo {
         return "AccountInfo{" +
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", account='" + account + '\'' +
                 '}';
     }
 }

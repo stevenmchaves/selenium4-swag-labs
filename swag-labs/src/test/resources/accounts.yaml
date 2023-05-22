@@ -1,8 +1,10 @@
 # Different users to use in Test cases
 # accounts:
 ---
+account: "StandardUser"
 username: "standard_user"
 password: "secret_sauce"
 ---
+account: "LockedOutUser"
 username: "locked_out_user"
 password: "secret_sauce"

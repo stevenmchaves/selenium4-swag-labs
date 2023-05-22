@@ -5,6 +5,10 @@ import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = {"pretty"})
+@CucumberOptions(
+        features = {"src/test/resources"},
+        glue = {"prj.swag_labs.steps"},
+        plugin = {"pretty", "summary"}
+)
 public class RunCucumberTest {
 }
